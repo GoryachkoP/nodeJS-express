@@ -15,11 +15,24 @@ app.set('views', 'views')
 app.use(express.static('public'))
 
 app.get('/', (req, res, next) => {
-  res.render('index')
+  res.render('index', {
+    title: 'Головна сторінка',
+    isHome: true
+  })
 })
 
-app.get('/about', (req, res) => {
-  res.render('about')
+app.get('/courses', (req, res) => {
+  res.render('courses', {
+    title: 'Курси',
+    isCourses: true
+  })
+})
+
+app.get('/add', (req, res) => {
+  res.render('add', {
+    title: 'Додати курс',
+    isAdd: true
+  })
 })
 
 
