@@ -13,7 +13,7 @@ class Course {
   async save () {
     const courses = await Course.getAll()
 
-    courses.push(this.toJSON())
+    courses.push(this.toObject())
     
     return new Promise ((resolve, reject) => {
       fs.writeFile(
@@ -30,7 +30,7 @@ class Course {
     })
   }
 
-  toJSON () {
+  toObject () {
     return {
       title: this.title,
       price: this.price,
